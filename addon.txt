@@ -1,0 +1,7 @@
+"BDrop"
+{
+    "title"         :           "Weapon Drop/Highlighting",
+    "version"       :           "1.0",
+    "type"          :           "ServerContent"
+    "tags"          :           [ "build", "fun" ]
+}
