@@ -13,10 +13,14 @@ local function getNearbyWeapons( radius )
 	local ply = LocalPlayer()
 	local nearbyEnts = ents.FindInSphere( ply:GetPos(), radius )
 	local weps = {}
+	local dists = {}
 
 	for _, ent in pairs( nearbyEnts ) do
 		if not ent:IsWeapon() then continue end
+		local owner = ent.Owner
+		if owner:IsPlayer() or owner:IsNPC() then continue end
 		table.insert( weps, ent )
+		if #weps > 20 then break end
 	end
 
 	return weps
