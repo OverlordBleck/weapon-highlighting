@@ -31,6 +31,10 @@ local function dropPlayerWeapons( ply, weps )
         gun:SetModel( gun:GetWeaponWorldModel() )
         gun:SetPos( plyPos + Vector( 0, 0, 50 ) )
         gun:Spawn()
+        gun.despawn = timer.Simple( 10, function()
+            if not IsValid( gun ) then return end
+            gun:Remove()
+        end)
     end
 end
 
